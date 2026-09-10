@@ -1,5 +1,15 @@
 import { reactive, readonly } from 'vue'
 
+// Article data shape (minimum fields):
+// {
+//   title: string,       // article title
+//   author: string,      // article author
+//   pubDate: string,     // publication date
+//   link: string,        // article URL
+//   description: string, // article content/summary
+//   read: boolean        // read status
+// }
+
 export const useAppState = () => {
   const state = reactive({
     feedsList: [],

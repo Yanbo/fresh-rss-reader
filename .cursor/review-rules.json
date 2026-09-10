@@ -1,0 +1,87 @@
+{
+  "name": "fresh-rss-reader-review-rules",
+  "description": "Custom review rules for the Fresh RSS Reader project",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "vue-component-naming",
+      "name": "Vue Component Naming Convention",
+      "description": "Ensure Vue components follow PascalCase naming (FeedList, ArticleList, ArticleView)",
+      "severity": "warning",
+      "check": "Component file names must be PascalCase",
+      "message": "Vue component files should use PascalCase naming convention"
+    },
+    {
+      "id": "vue-setup-syntax",
+      "name": "Vue 3 Composition API Usage",
+      "description": "All Vue components must use <script setup> syntax",
+      "severity": "error",
+      "check": "All .vue files must use <script setup> tag",
+      "message": "Use <script setup> syntax for Vue 3 Composition API"
+    },
+    {
+      "id": "qwebchannel-error-handling",
+      "name": "QWebChannel Error Handling",
+      "description": "QWebChannel initialization must handle errors gracefully",
+      "severity": "error",
+      "check": "services/qweb.js must check for qt.webChannelTransport availability",
+      "message": "QWebChannel must handle missing qt.webChannelTransport gracefully"
+    },
+    {
+      "id": "buffer-method-contract",
+      "name": "Buffer Method Contract",
+      "description": "All Python buffer methods must have clear contracts with JS",
+      "severity": "warning",
+      "check": "buffer.py methods must be documented with @pyqtSlot decorator",
+      "message": "Buffer methods should use @pyqtSlot for QWebChannel integration"
+    },
+    {
+      "id": "security-xss-check",
+      "name": "XSS Prevention",
+      "description": "Article content must be sanitized before display",
+      "severity": "error",
+      "check": "ArticleView.vue must use v-html with sanitized content or text interpolation",
+      "message": "Use v-text or sanitized v-html to prevent XSS attacks"
+    },
+    {
+      "id": "state-readonly-protection",
+      "name": "State Read-Only Protection",
+      "description": "Application state must be protected from external mutation",
+      "severity": "warning",
+      "check": "useAppState.js must use readonly() wrapper",
+      "message": "State must be wrapped with readonly() to prevent external mutation"
+    },
+    {
+      "id": "doom-emacs-compatibility",
+      "name": "Doom Emacs Compatibility",
+      "description": "Key bindings must avoid conflicts with Doom Emacs Evil mode",
+      "severity": "warning",
+      "check": "eaf-fresh-rss-reader.el must define key bindings that don't conflict with Doom",
+      "message": "Key bindings should avoid Doom Emacs Evil mode conflicts"
+    },
+    {
+      "id": "eaf-boundary-constraint",
+      "name": "EAF Boundary Constraint",
+      "description": "No changes to parent EAF project",
+      "severity": "error",
+      "check": "All code changes must be within fresh-rss-reader/ directory",
+      "message": "Do not modify parent EAF project files"
+    },
+    {
+      "id": "article-data-model",
+      "name": "Article Data Model Consistency",
+      "description": "Article objects must have consistent field names",
+      "severity": "warning",
+      "check": "All article objects must use: title, author, pubDate, link, description, read",
+      "message": "Article objects must have consistent field names across all components"
+    },
+    {
+      "id": "error-handling-empty-state",
+      "name": "Empty State Handling",
+      "description": "Components must handle empty states gracefully",
+      "severity": "warning",
+      "check": "FeedList, ArticleList, ArticleView must have empty state handling",
+      "message": "Components should handle empty data states gracefully"
+    }
+  ]
+}
