@@ -5,7 +5,7 @@ import ArticleList from './components/ArticleList.vue'
 import ArticleView from './components/ArticleView.vue'
 import { computed } from 'vue'
 
-const { state, selectFeed, selectArticle, closeArticle, toggleFullscreen } = useAppState()
+const { state, selectFeed, selectArticle, closeArticle, toggleFullscreen, openArticle } = useAppState()
 
 const hasFeed = computed(() => state.currentFeedIndex >= 0)
 </script>
@@ -26,6 +26,7 @@ const hasFeed = computed(() => state.currentFeedIndex >= 0)
         :fullscreen="state.articleViewMode === 'fullscreen'"
         @close="closeArticle"
         @toggle-fullscreen="toggleFullscreen"
+        @open="openArticle"
       />
     </div>
   </div>
