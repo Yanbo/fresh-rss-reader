@@ -1,9 +1,31 @@
 <script setup>
-defineProps({
-  article: { type: Object, default: () => ({}) },
-  fullscreen: { type: Boolean, default: false }
-})
-defineEmits(['close', 'toggle-fullscreen'])
+  import { onMounted, onUnmounted } from 'vue'
+
+  defineProps({
+    article: { type: Object, default: () => ({}) },
+    fullscreen: { type: Boolean, default: false }
+  })
+  defineEmits(['close', 'toggle-fullscreen', 'open'])
+
+  // Keyboard shortcuts:
+  //   'q' : close current article
+  //   'f' : open current article (if not already open)
+  function handleKeydown(e) {
+    if (e.key === 'q') {
+      $emit('close')
+    }
+    if (e.key === 'f') {
+      $emit('open')
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('keydown', handleKeydown)
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener('keydown', handleKeydown)
+  })
 </script>
 
 <template>
